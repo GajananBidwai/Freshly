@@ -35,7 +35,7 @@ struct WelcomeView: View {
                         SignInView()
                     } label: {
                         RoundedButton(title: "Get Started")
-                        
+                            
                     }
 
                     

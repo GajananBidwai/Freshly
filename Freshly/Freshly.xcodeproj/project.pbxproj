@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		924300102E127B4500A3C6C6 /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9243000F2E127B4500A3C6C6 /* CountryPicker */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9243FFC22E0E783100A3C6C6 /* Freshly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freshly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				924300102E127B4500A3C6C6 /* CountryPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = Freshly;
 			packageProductDependencies = (
+				9243000F2E127B4500A3C6C6 /* CountryPicker */,
 			);
 			productName = Freshly;
 			productReference = 9243FFC22E0E783100A3C6C6 /* Freshly.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 9243FFB92E0E783100A3C6C6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9243000E2E127B4500A3C6C6 /* XCRemoteSwiftPackageReference "CountryPicker" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9243FFC32E0E783100A3C6C6 /* Products */;
 			projectDirPath = "";
@@ -351,6 +360,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9243000E2E127B4500A3C6C6 /* XCRemoteSwiftPackageReference "CountryPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mobven/CountryPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9243000F2E127B4500A3C6C6 /* CountryPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9243000E2E127B4500A3C6C6 /* XCRemoteSwiftPackageReference "CountryPicker" */;
+			productName = CountryPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9243FFBA2E0E783100A3C6C6 /* Project object */;
 }
