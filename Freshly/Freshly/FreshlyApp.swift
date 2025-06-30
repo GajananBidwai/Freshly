@@ -11,7 +11,7 @@ import SwiftUI
 struct FreshlyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
         }
     }
 }
