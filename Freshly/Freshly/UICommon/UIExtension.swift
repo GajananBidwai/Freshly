@@ -131,7 +131,7 @@ struct ShowButton: ViewModifier {
             Button {
                 isShow.toggle()
             } label: {
-                Image(systemName: !isShow ? "eye.fill" : "eye.slash.fill" )
+                Image(systemName: !isShow ? "eye.slash.fill" : "eye.fill" )
                     .foregroundColor(.textTitle)
             }
 
