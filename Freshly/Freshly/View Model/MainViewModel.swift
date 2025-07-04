@@ -13,6 +13,8 @@ class MainViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var txtPassword: String = ""
     @Published var isShowPassoword: Bool = false
+    @Published var txtUsername: String = ""
+    @Published var isUserLogin: Bool = false
     
     
 }

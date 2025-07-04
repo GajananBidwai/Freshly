@@ -11,17 +11,14 @@ struct RoundedButton: View {
     @State var title = "Title"
     
     var body: some View {
-        Button{
-            
-        }label: {
-            Text(title)
-                .font(.customfont(.regular, fontSize: 20))
-                .foregroundColor(.white)
-                
-        }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
-        .background(Color.primaryApp)
-        .cornerRadius(17, corner: .allCorners)
+        Text("\(title)")
+            .font(.customfont(.regular, fontSize: 20))
+            .foregroundColor(.white)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
+            .background(Color.primaryApp)
+            .cornerRadius(17, corner: .allCorners)
+        
+
     }
 }
 

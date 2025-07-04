@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct FreshlyApp: App {
+    @StateObject var mainVM = MainViewModel.shared
+    
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            
+            if mainVM.isUserLogin{
+                 
+            }else{
+                WelcomeView()
+            }
+            
+            
         }
     }
 }

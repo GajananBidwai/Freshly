@@ -13,104 +13,112 @@ struct LoginView: View {
     @StateObject var viewModel = MainViewModel.shared;
     
     var body: some View {
-        ZStack{
-            Image("bottom_bg")
-                .resizable()
-                .scaledToFill()
-                .frame(width: .screenWidth, height: .screenHeight)
-            
-            VStack{
-                Image("color_logo")
+        NavigationStack{
+            ZStack{
+                Image("bottom_bg")
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 40)
-                    .padding(.bottom, .screenWidth * 0.12)
+                    .scaledToFill()
+                    .frame(width: .screenWidth, height: .screenHeight)
                 
-                
-                Text("Loging")
-                    .font(.customfont(.semibold, fontSize: 30))
-                    .foregroundStyle(Color.primaryText)
-                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, 4)
-                
-                Text("Enter your email and password")
-                    .font(.customfont(.regular, fontSize: 16))
-                    .foregroundStyle(Color.secondaryText)
-                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, .screenWidth * 0.1)
-                
-                
-                LineTextField(title: "Email", placeHolder: "Enter your email address", txt: $viewModel.email, keyBoardType: .emailAddress)
-                    .padding(.bottom, .screenWidth * 0.07)
-                
-                LineSecureField( title: "Password", placholder: "Enter your password", txt: $viewModel.txtPassword,isShowPassword: $viewModel.isShowPassoword)
-                    .padding(.bottom, .screenWidth * 0.02)
-                
-                
-                Button {
+                VStack{
+                    Image("color_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40)
+                        .padding(.bottom, .screenWidth * 0.12)
                     
-                } label: {
-                    Text("Forget Password?")
+                    
+                    Text("Loging")
+                        .font(.customfont(.semibold, fontSize: 30))
                         .foregroundStyle(Color.primaryText)
-                        .font(.customfont(.semibold , fontSize: 15))
-                        
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-                .padding(.bottom, .screenWidth * 0.02)
-                
-                
-                RoundedButton(title: "Log in") 
-                    .padding(.bottom, 15)
-                
-                HStack{
-                    Text("Don't have an account?")
-                        .font(.customfont(.semibold, fontSize: 16))
-                        .foregroundStyle(Color.primaryText)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom, 4)
+                    
+                    Text("Enter your email and password")
+                        .font(.customfont(.regular, fontSize: 16))
+                        .foregroundStyle(Color.secondaryText)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom, .screenWidth * 0.1)
+                    
+                    
+                    LineTextField(title: "Email", placeHolder: "Enter your email address", txt: $viewModel.email, keyBoardType: .emailAddress)
+                        .padding(.bottom, .screenWidth * 0.07)
+                    
+                    LineSecureField( title: "Password", placholder: "Enter your password", txt: $viewModel.txtPassword,isShowPassword: $viewModel.isShowPassoword)
+                        .padding(.bottom, .screenWidth * 0.02)
+                    
                     
                     Button {
                         
                     } label: {
-                        Text("Sign up")
-                            .font(.customfont(.semibold, fontSize: 16))
-                            .foregroundStyle(Color.primaryApp)
+                        Text("Forget Password?")
+                            .foregroundStyle(Color.primaryText)
+                            .font(.customfont(.semibold , fontSize: 15))
+                            
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                    .padding(.bottom, .screenWidth * 0.02)
+                    
+                    
+                    NavigationLink {
+                        MainTabView()
+                    } label: {
+                        RoundedButton(title: "Log in")
+                            .padding(.bottom, 15)
+                    }
+                    
+                    NavigationLink {
+                        SignUPView()
+                    } label: {
+                        HStack{
+                            Text("Don't have an account?")
+                                .font(.customfont(.semibold, fontSize: 16))
+                                .foregroundStyle(Color.primaryText)
+                            
+                            Text("Sign up")
+                                .font(.customfont(.semibold, fontSize: 16))
+                                .foregroundStyle(Color.primaryApp)
+                        }
                     }
 
-                }
-                
-                
-                Spacer()
-            }
-            .padding(.top, .topInsets + 64)
-            .padding(.horizontal, 20)
-            .padding(.bottom, .bottomInsets)
-            
-            
-            
-            VStack{
-                HStack{
-                    Button {
-                        mode.wrappedValue.dismiss()
-                     } label: {
-                        Image("back")
-                            .resizable()
-                            .frame(width: 15, height: 20)
-                            .scaledToFit()
-                    }
-
-                        
+                    
+                    
+                    
                     Spacer()
                 }
+                .padding(.top, .topInsets + 64)
+                .padding(.horizontal, 20)
+                .padding(.bottom, .bottomInsets)
                 
-                Spacer()
+                
+                
+                VStack{
+                    HStack{
+                        Button {
+                            mode.wrappedValue.dismiss()
+                         } label: {
+                            Image("back")
+                                .resizable()
+                                .frame(width: 15, height: 20)
+                                .scaledToFit()
+                        }
+
+                            
+                        Spacer()
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.top, .topInsets)
+                .padding(.horizontal, 20  )
             }
-            .padding(.top, .topInsets)
-            .padding(.horizontal, 20  )
+            .background(.white)
+            .navigationTitle("")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
+            .ignoresSafeArea()
         }
-        .background(.white)
-        .navigationTitle("")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
-        .ignoresSafeArea()
+        
     }
 }
 

@@ -28,6 +28,9 @@ struct LineTextField: View {
             }else {
                 TextField(placeHolder, text: $txt)
                     .keyboardType(keyBoardType)
+                    .autocorrectionDisabled(true)
+                    .autocapitalization(.none)
+                    .frame(height: 40)
             }
             
             
