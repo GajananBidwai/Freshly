@@ -15,9 +15,11 @@ struct Product: Codable, Identifiable{
     var category: String
     var image: String
     var rating: Rating
+    
 }
 
 struct Rating: Codable{
     var rate: Float
     var count: Int
+    
 }

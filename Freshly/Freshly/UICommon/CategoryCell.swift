@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CategoryCell: View {
     
@@ -19,6 +20,7 @@ struct CategoryCell: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 70, height: 70)
+                
             
             Text("Pulses")
                 .font(.customfont(.bold, fontSize: 15))

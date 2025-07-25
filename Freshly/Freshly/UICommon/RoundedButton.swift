@@ -8,21 +8,27 @@
 import SwiftUI
 
 struct RoundedButton: View {
-    @State var title = "Title"
+    var title = "Title"
+    var didTap: ()-> Void
     
     var body: some View {
-        Text("\(title)")
-            .font(.customfont(.regular, fontSize: 20))
-            .foregroundColor(.white)
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
-            .background(Color.primaryApp)
-            .cornerRadius(17, corner: .allCorners)
+        
+        Button(action: didTap) {
+            Text("\(title)")
+                .font(.customfont(.regular, fontSize: 20))
+                .foregroundColor(.white)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 60, maxHeight: 60)
+                .background(Color.primaryApp)
+                .cornerRadius(17, corner: .allCorners)
+        }
+
+        
         
 
     }
 }
 
-#Preview {
-    RoundedButton()
-        .padding()
-}
+//#Preview {
+//    RoundedButton(didTap: () -> Void)
+//        .padding()
+//}

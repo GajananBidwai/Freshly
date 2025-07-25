@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @EnvironmentObject var loginVM: LoginViewModel
+    @State private var isNavigate = false
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -35,12 +38,14 @@ struct WelcomeView: View {
                         NavigationLink {
                             SignInView()
                         } label: {
-                            RoundedButton(title: "Get Started")
+                            RoundedButton(title: "Get Started") {
+                                isNavigate = true
+                            }
                             
                         }
-                        
-                        
-                        
+                        .navigationDestination(isPresented: $isNavigate) {
+                            SignInView()
+                        }
                         
                         Spacer()
                             .frame(height: 80)

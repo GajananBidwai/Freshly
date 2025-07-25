@@ -8,32 +8,33 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @EnvironmentObject var loginVM: LoginViewModel
     @StateObject var homeViewModel = HomeViewModel.shared
-    @StateObject var productViewModel = ProductViewModel()
-    
-    
+    @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var cartVM: CartViewModel
     var body: some View {
+        
         VStack{
             TabView(selection: $homeViewModel.selectedTab) {
-                HomeView().tag(0)
-                HomeView().tag(1)
-                HomeView().tag(2)
-                HomeView().tag(3)
-                HomeView().tag(4)
+                HomeView(productVM: ProductViewModel(context: modelContext)).tag(0)
+                HomeView(productVM: ProductViewModel(context: modelContext)).tag(1)
+                CartView().tag(2)
+                FavouriteView().tag(3)
+                AccountView().tag(4)
                 
                 
                  
             }
             .onAppear {
-                UIScrollView.appearance().isScrollEnabled = false
-                productViewModel.fetchData()
-                print(productViewModel.product)
-            }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .onChange(of: homeViewModel.selectedTab) { newValue in
-                debugPrint("selected tab: \(newValue)")
+                UIScrollView.appearance().isScrollEnabled = true
+                
             }
             
+            .onChange(of: homeViewModel.selectedTab) { newValue in
+                debugPrint("selected tab: \(newValue)")
+                print("isLoggedIn changed is \(loginVM.isLoggedIn)")
+            }
+        
             HStack{
                 
                 TabButton(title: "Store", icon: "store_tab", isSelect: homeViewModel.selectedTab == 0) {
@@ -99,6 +100,11 @@ struct MainTabView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         .ignoresSafeArea()
+        .onAppear {
+            let storeURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
+            print("Store location: \(storeURL?.path ?? "not found")")
+
+        }
     }
 }
 

@@ -12,6 +12,10 @@ struct SignUPView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     @StateObject var viewModel = MainViewModel.shared;
+    @StateObject var signUpVM = SignUpViewModel()
+    @State var isNavigate = false
+    @State var toastMassage = ""
+    @State var showToast = false
     
     var body: some View {
         NavigationStack{
@@ -41,13 +45,13 @@ struct SignUPView: View {
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.bottom, .screenWidth * 0.1)
                         
-                        LineTextField(title: "Username", placeHolder: "Enter your username", txt: $viewModel.email)
+                        LineTextField(title: "Username", placeHolder: "Enter your username", txt: $signUpVM.nickName)
                             .padding(.bottom, .screenWidth * 0.07)
                         
-                        LineTextField(title: "Email", placeHolder: "Enter your email address", txt: $viewModel.email, keyBoardType: .emailAddress)
+                        LineTextField(title: "Email", placeHolder: "Enter your email address", txt: $signUpVM.email, keyBoardType: .emailAddress)
                             .padding(.bottom, .screenWidth * 0.07)
                         
-                        LineSecureField( title: "Password", placholder: "Enter your password", txt: $viewModel.txtPassword,isShowPassword: $viewModel.isShowPassoword)
+                        LineSecureField( title: "Password", placholder: "Enter your password", txt: $signUpVM.password,isShowPassword: $viewModel.isShowPassoword)
                             .padding(.bottom, .screenWidth * 0.02)
                         
                         
@@ -74,16 +78,26 @@ struct SignUPView: View {
                             }
                             .padding(.bottom, .screenWidth * 0.02)
                         }
-                        
-                        
-                        Button {
-                            
-                            
-                        } label: {
-                            RoundedButton(title: "Sign up")
-                                .padding(.bottom, 15)
+                    
+                        RoundedButton(title: "Sign up", didTap: {
+                            signUpVM.signUp { result in
+                                if result == true{
+                                    isNavigate = true
+                                    showToast = true
+                                    toastMassage = "Sign in SuccessFully...!"
+                                }else {
+                                    toastMassage = signUpVM.errorMassage
+                                    showToast = true
+                                    isNavigate = false
+                                }
+                            }
+                        })
+                        .padding(.bottom, 15)
+                        .toast(message: toastMassage, isPresented: $showToast)
+                        .navigationDestination(isPresented: $isNavigate) {
+                            LoginView()
                         }
-
+                        
                         
                         
                         NavigationLink {

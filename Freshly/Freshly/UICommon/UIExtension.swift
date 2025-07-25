@@ -143,6 +143,10 @@ extension View {
     func cornerRadius(_ radius: CGFloat, corner:  UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corers: corner))
     }
+    
+    func toast(message: String, isPresented: Binding<Bool>, duration: TimeInterval = 2.0) -> some View {
+        self.modifier(ToastModifier(message: message, isPresented: isPresented, duration: duration))
+    }
 }
 
 struct RoundedCorner: Shape {
@@ -153,5 +157,16 @@ struct RoundedCorner: Shape {
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corers, cornerRadii: CGSize(width: radius, height: radius))
         return Path(path.cgPath)
     }
+}
+
+struct CustomAlert{
+    func customAlert(show: Binding<Bool>, title: String, message: String, button: String) -> Alert {
+        Alert(
+            title: Text(title),
+            message: Text(message),
+            dismissButton: .default(Text(button))
+        )
+    }
+
 }
 

@@ -11,13 +11,13 @@ struct TabButton: View {
     @State var title: String = "Title"
     @State var icon: String = "store_tab"
     var isSelect: Bool = false
-    var didSelect: ( ()->() )?
+    var didSelect: ( ()->() )
     
     
     var body: some View {
         Button {
             debugPrint("Tab button tap")
-            didSelect?()
+            didSelect()
         } label: {
             VStack{
                 Image(icon)
@@ -37,5 +37,7 @@ struct TabButton: View {
 }
 
 #Preview {
-    TabButton()
+    TabButton{
+        print("Test")
+    }
 }

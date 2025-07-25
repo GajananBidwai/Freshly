@@ -11,7 +11,7 @@ struct SectionTitleAll: View {
     
     @State var title: String = "Title"
     @State var titleAll: String = "ViewAll"
-    var didTap: (()->())?
+    var didTap: () -> Void
     
     var body: some View {
         HStack{
@@ -21,16 +21,18 @@ struct SectionTitleAll: View {
             
             Spacer()
             
-            Text(titleAll)
-                .font(.customfont(.semibold, fontSize: 16))
-                .foregroundStyle(Color.primaryApp)
+            Button(action: didTap) {
+                Text(titleAll)
+                    .font(.customfont(.semibold, fontSize: 16))
+                    .foregroundStyle(Color.primaryApp)
+            }
         }
         .padding(20)
         .frame(height: 40)
     }
 }
 
-#Preview {
-    SectionTitleAll()
-        
-}
+//#Preview {
+//    SectionTitleAll()
+//        
+//}

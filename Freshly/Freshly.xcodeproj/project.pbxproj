@@ -7,8 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92219C1C2E1BD38A0021427A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 92219C1B2E1BD38A0021427A /* Kingfisher */; };
+		922E77BB2E2F9AD500CCD985 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 922E77BA2E2F9AD500CCD985 /* FirebaseAnalytics */; };
+		922E77BE2E2F9E8C00CCD985 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 922E77BD2E2F9E8C00CCD985 /* FirebaseAuth */; };
 		924300102E127B4500A3C6C6 /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 9243000F2E127B4500A3C6C6 /* CountryPicker */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		92219D592E1CDD280021427A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9243FFC22E0E783100A3C6C6 /* Freshly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freshly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,17 +56,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92219C1C2E1BD38A0021427A /* Kingfisher in Frameworks */,
 				924300102E127B4500A3C6C6 /* CountryPicker in Frameworks */,
+				922E77BB2E2F9AD500CCD985 /* FirebaseAnalytics in Frameworks */,
+				922E77BE2E2F9E8C00CCD985 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		922E77BC2E2F9E8C00CCD985 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9243FFB92E0E783100A3C6C6 = {
 			isa = PBXGroup;
 			children = (
 				9243FFC42E0E783100A3C6C6 /* Freshly */,
+				922E77BC2E2F9E8C00CCD985 /* Frameworks */,
 				9243FFC32E0E783100A3C6C6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +100,7 @@
 				9243FFBE2E0E783100A3C6C6 /* Sources */,
 				9243FFBF2E0E783100A3C6C6 /* Frameworks */,
 				9243FFC02E0E783100A3C6C6 /* Resources */,
+				92219D592E1CDD280021427A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -84,6 +112,9 @@
 			name = Freshly;
 			packageProductDependencies = (
 				9243000F2E127B4500A3C6C6 /* CountryPicker */,
+				92219C1B2E1BD38A0021427A /* Kingfisher */,
+				922E77BA2E2F9AD500CCD985 /* FirebaseAnalytics */,
+				922E77BD2E2F9E8C00CCD985 /* FirebaseAuth */,
 			);
 			productName = Freshly;
 			productReference = 9243FFC22E0E783100A3C6C6 /* Freshly.app */;
@@ -115,6 +146,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				9243000E2E127B4500A3C6C6 /* XCRemoteSwiftPackageReference "CountryPicker" */,
+				92219C1A2E1BD38A0021427A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				922E77B92E2F9AD500CCD985 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9243FFC32E0E783100A3C6C6 /* Products */;
@@ -362,6 +395,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		92219C1A2E1BD38A0021427A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.4.0;
+			};
+		};
+		922E77B92E2F9AD500CCD985 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
 		9243000E2E127B4500A3C6C6 /* XCRemoteSwiftPackageReference "CountryPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mobven/CountryPicker";
@@ -373,6 +422,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		92219C1B2E1BD38A0021427A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92219C1A2E1BD38A0021427A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		922E77BA2E2F9AD500CCD985 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 922E77B92E2F9AD500CCD985 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		922E77BD2E2F9E8C00CCD985 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 922E77B92E2F9AD500CCD985 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		9243000F2E127B4500A3C6C6 /* CountryPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9243000E2E127B4500A3C6C6 /* XCRemoteSwiftPackageReference "CountryPicker" */;

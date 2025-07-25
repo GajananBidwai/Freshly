@@ -11,6 +11,8 @@ struct LoginView: View {
     
     @Environment(\.presentationMode) var mode: Binding<PresentationMode >
     @StateObject var viewModel = MainViewModel.shared;
+    @State private var isNavigate = false
+    @StateObject private var loginVM = LoginViewModel()
     
     var body: some View {
         NavigationStack{
@@ -41,10 +43,10 @@ struct LoginView: View {
                         .padding(.bottom, .screenWidth * 0.1)
                     
                     
-                    LineTextField(title: "Email", placeHolder: "Enter your email address", txt: $viewModel.email, keyBoardType: .emailAddress)
+                    LineTextField(title: "Email", placeHolder: "Enter your email address", txt: $loginVM.email, keyBoardType: .emailAddress)
                         .padding(.bottom, .screenWidth * 0.07)
                     
-                    LineSecureField( title: "Password", placholder: "Enter your password", txt: $viewModel.txtPassword,isShowPassword: $viewModel.isShowPassoword)
+                    LineSecureField( title: "Password", placholder: "Enter your password", txt: $loginVM.password, isShowPassword: $viewModel.isShowPassoword)
                         .padding(.bottom, .screenWidth * 0.02)
                     
                     
@@ -60,12 +62,21 @@ struct LoginView: View {
                     .padding(.bottom, .screenWidth * 0.02)
                     
                     
-                    NavigationLink {
-                        MainTabView()
-                    } label: {
-                        RoundedButton(title: "Log in")
-                            .padding(.bottom, 15)
-                    }
+                    RoundedButton(title: "Log in", didTap: {
+                        loginVM.login { success in
+                            if success{
+                                isNavigate = true
+                            }
+                            else{
+                                isNavigate = false
+                            }
+                        }
+                        
+                    })
+                        .padding(.bottom, 15)
+                        .navigationDestination(isPresented: $isNavigate) {
+                            MainTabView() 
+                        }
                     
                     NavigationLink {
                         SignUPView()
